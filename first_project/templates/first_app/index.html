@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MahendraX</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+        <h1>Welcome to Mahendrax</h1>
+        <h2>Access records of sites</h2>
+
+        <div class="djangotwo">
+            {% if acc_rec %}
+                <table>
+                    <thead>
+                        <th>Site Name</th>
+                        <th>Accessed Date</th>
+                    </thead>
+                    {% for acc in acc_rec %}
+                    <tr>
+                        <td>{{acc.name}}</td>
+                        <td>{{acc.date}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>OOPs!No Access Records Found!</p>
+            {% endif %}
+        </div>
+
+</body>
+</html>
